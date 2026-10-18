@@ -1,0 +1,6 @@
+{
+  "name": "CastWise - Angling Conditions & Rig Guide",
+  "description": "Evaluate fishing favorability, analyze barometric pressure, wind, and tidal stages, and get precision tackle and rig recommendations for any target species.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
