@@ -131,9 +131,9 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
 
   carolina_rig: {
     id: 'carolina_rig',
-    name: 'Carolina Rig',
+    name: 'Carolina / Running Sinker Rig',
     category: 'bottom_ledger',
-    summary: 'Supreme versatility for dragging along mudflats, sandbars, and drop-offs for redfish, drum, bass, and flounder.',
+    summary: 'Supreme versatility for dragging along sand flats, channel edges, and drop-offs for Flathead, Bream, and Estuary Perch.',
     whyIdeal: 'Keeps heavy egg sinker crawling bottom structure while leader allows natural bait or soft plastic to waft enticingly above sediment.',
     mainLineRecommendation: '15 - 30 lb Braided line or 12-17 lb Monofilament',
     leaderRecommendation: '18 - 30 inches of 15 - 25 lb Fluorocarbon',
@@ -172,7 +172,7 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
       { id: 'n1', label: 'Top Swivel', description: 'Connected to mainline', specification: 'Prevents rig twist in heavy surf swells', x: 10, y: 20 },
       { id: 'n2', label: 'Rig Backbone', description: '30-40 lb heavy mono', specification: 'Stiff monofilament holds droppers away from main stem', x: 35, y: 20 },
       { id: 'n3', label: 'Top Dropper Loop & Hook', description: 'Upper Bait (1/0-3/0)', specification: 'Presents high in water column for cruising fish', x: 55, y: 15 },
-      { id: 'n4', label: 'Lower Dropper Loop & Hook', description: 'Lower Bait (1/0-3/0)', specification: 'Presents 10 inches off bottom for flatfish & drum', x: 65, y: 50 },
+      { id: 'n4', label: 'Lower Dropper Loop & Hook', description: 'Lower Bait (1/0-3/0)', specification: 'Presents 10 inches off bottom for Australian flathead & salmon', x: 65, y: 50 },
       { id: 'n5', label: 'Bottom Snap Clip', description: 'Fast snap', specification: 'Permits swapping sinker sizes in 5 seconds', x: 80, y: 80 },
       { id: 'n6', label: 'Terminal Sinker', description: '3 - 5 oz Pyramid', specification: 'Anchors the rig at the very sea floor', x: 92, y: 85 }
     ],
@@ -181,9 +181,9 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
 
   texas_weedless_rig: {
     id: 'texas_weedless_rig',
-    name: 'Weedless Texas Rig',
+    name: 'Weedless Texas / Snag-Proof Rig',
     category: 'finesse_subsurface',
-    summary: 'The ultimate snag-proof setup for penetrating thick hydrilla, lily pads, oyster bars, and submerged timber.',
+    summary: 'The ultimate snag-proof setup for penetrating heavy timber snags, drowned river gums, and weed mats for Murray Cod, Golden Perch, and Australian Bass.',
     whyIdeal: 'Bullet sinker slides over obstacles without hanging up, while the hook point is skin-hooked flush inside soft plastic.',
     mainLineRecommendation: '30 - 50 lb Braided line (for sawing through weeds) or 15 lb Fluorocarbon',
     leaderRecommendation: 'Direct to braid or 15 - 20 lb Fluorocarbon leader',
@@ -230,7 +230,7 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
     id: 'popping_cork_rig',
     name: 'Acoustic Popping Cork Rig',
     category: 'float_surface',
-    summary: 'Deadly in shallow flats and murky water. Emulates the surface splash and clicking sound of feeding trout and scurrying shrimp.',
+    summary: 'Deadly in shallow Australian flats, weed edges, and murky estuary mouths. Emulates the surface splash and clicking sound of fleeing prawns and schooling whitebait for Bream, Flathead, and Barramundi.',
     whyIdeal: 'Surface chugging draws predator attention from dozens of yards away, while bait hangs in natural suspended strike zone.',
     mainLineRecommendation: '20 - 30 lb Braided line (floats, high hook-setting speed)',
     leaderRecommendation: '20 - 30 lb Fluorocarbon leader (24-36 inches under cork)',
@@ -255,7 +255,7 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
     name: 'Stealth Free-Line Rig',
     category: 'finesse_subsurface',
     summary: 'Pure stealth natural presentation. Zero sinker or hardware — bait swims freely with tidal drift right into predator mouths.',
-    whyIdeal: 'Crucial for wary species like snook, tarpon, or clear-water stripers around bridge lights or shallow grass flats where any sinker looks unnatural.',
+    whyIdeal: 'Crucial for wary Australian species like Kingfish, Barramundi, or clear-water Bream around bridge lights, channel edges, or shallow seagrass flats where any sinker looks unnatural.',
     mainLineRecommendation: '15 - 30 lb Braid connected directly to fluorocarbon leader',
     leaderRecommendation: '36 - 48 inches of 25 - 40 lb Fluorocarbon (abrasive protection against gill plates)',
     hookRecommendation: '1/0 to 4/0 Light Wire Circle Hook nose-hooked or collar-hooked',
@@ -278,8 +278,8 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
     id: 'wire_leader_surf_rig',
     name: 'Armored Wire Bite-Leader Rig',
     category: 'surf_heavy',
-    summary: 'Heavy-duty tooth-proof rig engineered for sharp-toothed predators (Bluefish, Northern Pike, King Mackerel, Barracuda).',
-    whyIdeal: 'Razor-sharp teeth sever monofilament and fluorocarbon in a fraction of a second. Titanium/Nylon wire ensures clean landing.',
+    summary: 'Heavy-duty tooth-proof rig engineered for sharp-toothed Australian predators (Tailor, Spanish Mackerel, Barracouta, Queenfish).',
+    whyIdeal: 'Razor-sharp teeth sever monofilament and fluorocarbon in a fraction of a second. Titanium/Nylon wire ensures clean landing in surf and open wash.',
     mainLineRecommendation: '30 - 50 lb Braid',
     leaderRecommendation: '12 - 18 inches of 30 - 45 lb Nylon-Coated Multi-Strand Wire or Single-Strand Titanium',
     hookRecommendation: '4/0 - 6/0 Heavy Duty Long-Shank J-Hook or Heavy Circle Hook',
@@ -325,21 +325,21 @@ export const RIG_DATABASE: Record<string, RigDefinition> = {
     id: 'ned_finesse_rig',
     name: 'Ned Finesse Rig',
     category: 'finesse_subsurface',
-    summary: 'Midwest finesse secret. Flat mushroom jighead paired with ultra-buoyant Elaztech plastic stands straight up on bottom.',
-    whyIdeal: 'When fish are shut down after cold front high pressure, this subtle, small-profile bait shivering on bottom catches otherwise uncatchable fish.',
-    mainLineRecommendation: '10 lb Braid to 6 - 8 lb Fluorocarbon leader',
-    leaderRecommendation: '6 - 8 ft of 6 - 8 lb Fluorocarbon',
+    summary: 'Ultra-finesse presentation. Flat mushroom jighead paired with buoyant plastic stands straight up on bottom.',
+    whyIdeal: 'When Australian estuary fish (Bream, Estuary Perch, Golden Perch) are shut down after cold front high pressure, this subtle, small-profile bait shivering on bottom catches wary fish.',
+    mainLineRecommendation: '10 lb Braid to 4 - 8 lb Fluorocarbon leader',
+    leaderRecommendation: '6 - 8 ft of 4 - 8 lb Fluorocarbon',
     hookRecommendation: 'Integrated light wire hook on 1/16 oz to 1/6 oz Mushroom Head',
     sinkerRecommendation: 'Integrated mushroom jighead (no separate weight)',
     knots: [
       { name: 'Loop Knot or Clinch Knot', description: 'Tight connection or loop allowing slight pivot.' }
     ],
     schematicNodes: [
-      { id: 'n1', label: 'Braided Mainline', description: '8-10 lb Yellow/Green Braid', specification: 'High visibility for bite detection', x: 12, y: 45 },
+      { id: 'n1', label: 'Braided Mainline', description: '6-10 lb PE Braid', specification: 'High sensitivity for bite detection', x: 12, y: 45 },
       { id: 'n2', label: 'Double Uni Line Join', description: 'Leader Knot', specification: 'Braid to Fluorocarbon transition', x: 35, y: 45 },
-      { id: 'n3', label: 'Fluorocarbon Leader', description: '6-8 lb Stealth Fluoro', specification: 'Zero visibility in clear water', x: 58, y: 45 },
+      { id: 'n3', label: 'Fluorocarbon Leader', description: '4-8 lb Stealth Fluoro', specification: 'Zero visibility in clear water', x: 58, y: 45 },
       { id: 'n4', label: 'Mushroom Head Jig', description: '1/10 oz Mushroom Head', specification: 'Flat face lands on lake bottom and stays upright', x: 78, y: 65 },
-      { id: 'n5', label: 'Buoyant TRD Plastic', description: '2.75" Floating Plastic', specification: 'Stands 90 degrees vertical off bottom, waving like a defensive crawfish', x: 92, y: 35 }
+      { id: 'n5', label: 'Buoyant TRD Plastic', description: '2.5" Floating Plastic', specification: 'Stands 90 degrees vertical off bottom, waving like a defensive yabby', x: 92, y: 35 }
     ],
     bestEnvironments: ['freshwater_lake', 'freshwater_river', 'rocky_point']
   }

@@ -52,7 +52,9 @@ const PPB_FISH_IDS = [
   'australian_salmon',
   'black_bream_vic',
   'southern_garfish',
-  'yellowtail_kingfish'
+  'yellowtail_kingfish',
+  'silver_trevally',
+  'yellow_eye_mullet'
 ];
 
 interface PPBHotspot {
@@ -259,28 +261,28 @@ export const ConditionsForm: React.FC<ConditionsFormProps> = ({ input, onChange,
               onChange={(e) => handleUpdate('targetedFishId', e.target.value)}
               className="w-full px-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-sm font-medium text-[#1C1917] focus:bg-white focus:outline-none focus:border-[#1C1917] focus:ring-1 focus:ring-[#1C1917]"
             >
-              <optgroup label="Port Phillip Bay & Victorian Species (Australia)">
+              <optgroup label="Port Phillip Bay & Victorian Marine Species">
                 {FISH_SPECIES_LIST.filter(f => PPB_FISH_IDS.includes(f.id)).map((fish) => (
                   <option key={fish.id} value={fish.id}>
                     {fish.commonName}
                   </option>
                 ))}
               </optgroup>
-              <optgroup label="Other Saltwater Species">
+              <optgroup label="Other Australian Marine & Saltwater Species">
                 {FISH_SPECIES_LIST.filter(f => f.environmentType === 'saltwater' && !PPB_FISH_IDS.includes(f.id)).map((fish) => (
                   <option key={fish.id} value={fish.id}>
                     {fish.commonName}
                   </option>
                 ))}
               </optgroup>
-              <optgroup label="Freshwater Species">
+              <optgroup label="Australian Native Freshwater & Estuary Species">
                 {FISH_SPECIES_LIST.filter(f => f.environmentType === 'freshwater').map((fish) => (
                   <option key={fish.id} value={fish.id}>
                     {fish.commonName}
                   </option>
                 ))}
               </optgroup>
-              <option value="custom">Custom Entered Fish...</option>
+              <option value="custom">Custom Australian Species...</option>
             </select>
 
             {input.targetedFishId === 'custom' && (

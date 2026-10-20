@@ -45,11 +45,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, savedCount, onQuick
         </nav>
 
         {/* Zone 3: Rounded-Full Pill Buttons */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 shrink-0">
+          <PWAInstallButton variant="header" />
+
           <button
             type="button"
             onClick={onQuickPreset}
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-full border border-[#1C1917] text-[#1C1917] bg-white hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0"
+            className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-full border border-[#1C1917] text-[#1C1917] bg-white hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0"
             title="Reset to Port Phillip Bay, Victoria, Australia"
           >
             <Share2 className="w-3.5 h-3.5 text-[#E11D48]" />
@@ -59,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, savedCount, onQuick
           <button
             type="button"
             onClick={onOpenSaved}
-            className="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold rounded-full bg-[#1C1917] text-white hover:bg-stone-800 shadow-sm transition-colors whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-full bg-[#1C1917] text-white hover:bg-stone-800 shadow-sm transition-colors whitespace-nowrap shrink-0"
           >
             <Bookmark className="w-3.5 h-3.5" />
             <span>Trip Plans {savedCount > 0 ? `(${savedCount})` : ''}</span>

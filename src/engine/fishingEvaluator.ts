@@ -16,30 +16,30 @@ export function evaluateFishingConditions(input: FishingInput): FishingEvaluatio
     // Custom fish fallback
     targetSpecies = {
       id: 'custom_fish',
-      commonName: input.customFishName || 'Custom Game Fish',
-      scientificName: 'Piscis generis',
+      commonName: input.customFishName || 'Custom Australian Species',
+      scientificName: 'Piscis australis',
       environmentType: input.customFishType || 'saltwater',
-      typicalHabitat: 'Shallow coastal waters, reefs, estuaries, or freshwater structure.',
-      habitatTags: ['Coastal', 'Reef', 'Estuary'],
-      region: 'Worldwide / Local Waters',
+      typicalHabitat: 'Australian coastal bays, rocky headlands, estuaries, or inland rivers.',
+      habitatTags: ['Coastal Bay', 'Estuary', 'Reef'],
+      region: 'Australian Waters (Victoria, NSW, QLD, WA, SA, TAS)',
       averageSize: 'Varies by species',
       optimalTempMinC: 15,
       optimalTempMaxC: 24,
-      lethalColdC: 4,
-      lethalWarmC: 32,
+      lethalColdC: 7,
+      lethalWarmC: 30,
       pressurePreference: 'prefers_falling',
       preferredTideStage: ['rising', 'falling'],
       defaultPrimaryRigId: 'fish_finder_sliding',
       defaultAlternativeRigId: 'carolina_rig',
-      description: 'Custom targeted sport fish.',
-      feedingHabits: 'Opportunistic predator stalking forage along structure lines.',
-      naturalBaits: ['Live baitfish', 'Fresh cut bait', 'Live shrimp or crawfish'],
-      artificialLures: ['Paddletail swimbait', 'Bucktail jig', 'Suspending twitchbait'],
+      description: 'Custom targeted Australian sport fish.',
+      feedingHabits: 'Opportunistic predator foraging on local baitfish, prawns, squid, and crabs.',
+      naturalBaits: ['Fresh WA Pilchards', 'Fresh Calamari strips', 'Live Bass Yabbies', 'Sandworms'],
+      artificialLures: ['Soft Plastic Minnow / Grub', 'Metal Casting Spoon', 'Suspending Hardbody'],
       regulations: {
-        sizeLimit: 'Check local state/provincial guidelines',
-        bagLimit: 'Check local daily limits',
-        season: 'Check regional open dates',
-        regulatoryNotes: 'Adhere to state or national fisheries regulations.'
+        sizeLimit: 'Consult state fisheries agency (e.g. Victorian Fisheries Authority - VFA)',
+        bagLimit: 'Check regional bag and possession limits',
+        season: 'Check state seasonal spawning closures',
+        regulatoryNotes: 'Recreational Fishing Licence required in Victorian and state waters.'
       }
     };
   }
@@ -351,8 +351,8 @@ export function evaluateFishingConditions(input: FishingInput): FishingEvaluatio
     }
   }
 
-  // Tooth check (Pike, Bluefish, King Mackerel)
-  if (targetSpecies.id === 'bluefish_tailor' || targetSpecies.id === 'northern_pike') {
+  // Tooth check (Australian Tailor / Mackerel)
+  if (targetSpecies.id === 'tailor') {
     primaryRigId = 'wire_leader_surf_rig';
   }
 
@@ -502,9 +502,9 @@ function generateTackleSpecs(
   } else if (species.environmentType === 'freshwater' && rig.id === 'drop_shot_rig') {
     mainLineLb = 10;
     mainLineReason = '10 lb thin braid casts micro-baits effortlessly and signals subtle nibbles.';
-  } else if (species.id === 'snook' || species.id === 'tarpon') {
-    mainLineLb = 30;
-    mainLineReason = 'Heavy braid provides muscle to turn fish before they reach bridge pilings or mangrove roots.';
+  } else if (species.id === 'barramundi' || species.id === 'yellowtail_kingfish') {
+    mainLineLb = 40;
+    mainLineReason = 'Heavy braid provides stopping power to turn powerful predators before they reach snags or reef pinnacles.';
   }
 
   // Leader calculation
@@ -513,19 +513,19 @@ function generateTackleSpecs(
   let leaderLengthInches = 30;
   let leaderReason = 'Fluorocarbon matches water refractive index for near-invisibility and high abrasion resistance.';
 
-  if (species.id === 'bluefish_tailor' || species.id === 'northern_pike') {
+  if (species.id === 'tailor') {
     leaderType = 'Wire / Titanium';
     leaderLb = 30;
     leaderLengthInches = 14;
     leaderReason = 'Armored wire prevents sharp predator teeth from slicing through the leader on headshakes.';
-  } else if (species.id === 'tarpon' || species.id === 'snook') {
-    leaderLb = 40;
-    leaderLengthInches = 36;
-    leaderReason = 'Heavy 40 lb fluorocarbon defends against sandpaper jaws and razor-sharp gill plates.';
-  } else if (rig.id === 'drop_shot_rig' || species.id === 'smallmouth_bass' || species.id === 'rainbow_brown_trout') {
+  } else if (species.id === 'barramundi' || species.id === 'yellowtail_kingfish') {
+    leaderLb = 50;
+    leaderLengthInches = 48;
+    leaderReason = 'Heavy 50-80 lb leader withstands razor-sharp gill rakers, headshakes, and abrasive reef bommies.';
+  } else if (species.id === 'black_bream_vic' || species.id === 'estuary_perch' || species.id === 'australian_bass') {
     leaderLb = 6;
     leaderLengthInches = 72;
-    leaderReason = 'Ultra-stealth 6 lb fluorocarbon allows finicky, clear-water gamefish to bite without suspicion.';
+    leaderReason = 'Ultra-stealth 4-6 lb fluorocarbon allows finicky, clear-water estuary fish to bite without suspicion.';
   }
 
   // Hook calculation
@@ -541,10 +541,10 @@ function generateTackleSpecs(
     hookStyle = 'Finesse Drop Shot Hook';
     hookSize = '#1';
     hookReason = 'Light wire needlepoint penetrates with light rod lift on delicate finesse spinning tackle.';
-  } else if (species.id === 'flounder_fluke' || species.id === 'sand_flathead') {
-    hookStyle = 'Kahle Hook or Long Shank Flattie Hook';
+  } else if (species.id === 'sand_flathead' || species.id === 'dusky_flathead') {
+    hookStyle = 'Long Shank Flattie Hook or Kahle Hook';
     hookSize = '1/0 - 2/0';
-    hookReason = 'Wide bend accommodates live minnow, whitebait, or squid strip without shielding the hook point.';
+    hookReason = 'Long shank accommodates whitebait, bluebait, or squid strip and protects line from rasping flathead teeth.';
   }
 
   // Rod & Reel specs base defaults
