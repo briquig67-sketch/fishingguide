@@ -21,13 +21,17 @@ import {
   ArrowUpRight, 
   ArrowDownRight, 
   Minus,
-  Sparkles
+  Sparkles,
+  Bookmark
 } from 'lucide-react';
 
 interface ConditionsFormProps {
   input: FishingInput;
   onChange: (updated: FishingInput) => void;
   onApplyPreset: (preset: ScenarioPreset) => void;
+  onOpenSaved?: () => void;
+  savedCount?: number;
+  onSaveCurrent?: () => void;
 }
 
 const WIND_DIRECTIONS: WindDirection[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
@@ -79,7 +83,14 @@ const PPB_HOTSPOTS: PPBHotspot[] = [
   { label: 'Patterson River / Lakes (Bream)', fullName: 'Port Phillip Bay (Patterson River & Canals)', fishId: 'black_bream_vic', environment: 'estuary_inlet', barometer: 1017, windSpeed: 7, windDir: 'S', tempWater: 18 }
 ];
 
-export const ConditionsForm: React.FC<ConditionsFormProps> = ({ input, onChange, onApplyPreset }) => {
+export const ConditionsForm: React.FC<ConditionsFormProps> = ({ 
+  input, 
+  onChange, 
+  onApplyPreset,
+  onOpenSaved,
+  savedCount = 0,
+  onSaveCurrent
+}) => {
   const isFreshwater = input.environment === 'freshwater_lake' || input.environment === 'freshwater_river';
 
   const handleUpdate = <K extends keyof FishingInput>(key: K, value: FishingInput[K]) => {
@@ -151,7 +162,20 @@ export const ConditionsForm: React.FC<ConditionsFormProps> = ({ input, onChange,
             <Sparkles className="w-3.5 h-3.5" />
             <span>Port Phillip Bay & Victorian Field Scenarios</span>
           </div>
-          <span className="text-xs text-stone-500">1-click authentic environmental data · Victoria, Australia</span>
+          <div className="flex items-center gap-3">
+            {onOpenSaved && (
+              <button
+                type="button"
+                onClick={onOpenSaved}
+                className="text-xs font-bold text-[#1C1917] hover:text-[#E11D48] flex items-center gap-1.5 transition-colors font-mono"
+              >
+                <Bookmark className="w-3.5 h-3.5 text-[#E11D48]" />
+                <span>Saved Versions ({savedCount})</span>
+              </button>
+            )}
+            <span className="hidden sm:inline text-xs text-stone-300">·</span>
+            <span className="hidden sm:inline text-xs text-stone-500">1-click authentic environmental data · Victoria</span>
+          </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
           {PRESET_SCENARIOS.map((preset) => (
@@ -723,6 +747,34 @@ export const ConditionsForm: React.FC<ConditionsFormProps> = ({ input, onChange,
             <p className="text-[11px] text-stone-500">
               Dictates lure color, leader stealth, and acoustic vibration needs.
             </p>
+          </div>
+        </div>
+
+        {/* Form Actions Footer */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-stone-200">
+          <div className="text-xs text-stone-500 font-mono">
+            Current Grounds: <span className="font-bold text-[#1C1917]">{input.areaName || 'Custom Waters'}</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-2.5">
+            {onSaveCurrent && (
+              <button
+                type="button"
+                onClick={onSaveCurrent}
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#1C1917] text-white hover:bg-stone-800 text-xs font-bold transition-colors shadow-2xs"
+              >
+                <Bookmark className="w-3.5 h-3.5 text-[#E11D48]" />
+                <span>Save Current Version</span>
+              </button>
+            )}
+            {onOpenSaved && (
+              <button
+                type="button"
+                onClick={onOpenSaved}
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-[#1C1917] text-[#1C1917] bg-white hover:bg-stone-100 text-xs font-bold transition-colors shadow-2xs"
+              >
+                <span>View Saved Versions {savedCount > 0 ? `(${savedCount})` : ''}</span>
+              </button>
+            )}
           </div>
         </div>
 

@@ -46,8 +46,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, savedCount, onQuick
 
         {/* Zone 3: Rounded-Full Pill Buttons */}
         <div className="flex items-center gap-2.5 shrink-0">
-          <PWAInstallButton variant="header" />
-
           <button
             type="button"
             onClick={onQuickPreset}
@@ -62,9 +60,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSaved, savedCount, onQuick
             type="button"
             onClick={onOpenSaved}
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-full bg-[#1C1917] text-white hover:bg-stone-800 shadow-sm transition-colors whitespace-nowrap shrink-0"
+            title="Open Saved Versions & Trip Plans"
           >
-            <Bookmark className="w-3.5 h-3.5" />
-            <span>Trip Plans {savedCount > 0 ? `(${savedCount})` : ''}</span>
+            <Bookmark className="w-3.5 h-3.5 text-[#E11D48]" />
+            <span>Saved Versions {savedCount > 0 ? `(${savedCount})` : ''}</span>
           </button>
         </div>
 

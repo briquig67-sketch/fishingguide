@@ -169,10 +169,19 @@ export default function App() {
                   <button
                     type="button"
                     onClick={handleSaveCurrentTrip}
+                    className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold rounded-full border border-[#1C1917] text-[#1C1917] hover:bg-[#1C1917] hover:text-white bg-white transition-colors shadow-2xs"
+                  >
+                    <Bookmark className="w-3.5 h-3.5 text-[#E11D48]" />
+                    <span>Save Version</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsSavedModalOpen(true)}
                     className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold rounded-full border border-stone-300 text-stone-700 hover:text-[#1C1917] hover:border-stone-400 bg-transparent transition-colors"
                   >
-                    <Bookmark className="w-3.5 h-3.5" />
-                    <span>Save Trip</span>
+                    <Bookmark className="w-3.5 h-3.5 text-stone-400" />
+                    <span>Saved Versions ({savedTrips.length})</span>
                   </button>
                 </div>
               </div>
@@ -235,6 +244,9 @@ export default function App() {
             input={input} 
             onChange={setInput}
             onApplyPreset={handleApplyPreset}
+            onOpenSaved={() => setIsSavedModalOpen(true)}
+            savedCount={savedTrips.length}
+            onSaveCurrent={handleSaveCurrentTrip}
           />
 
           {/* [02] Bite Favorability Scorecard */}

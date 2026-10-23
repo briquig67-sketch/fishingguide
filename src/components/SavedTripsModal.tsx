@@ -29,9 +29,12 @@ export const SavedTripsModal: React.FC<SavedTripsModalProps> = ({
         <div className="px-6 py-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
           <div className="flex items-center gap-2.5">
             <Bookmark className="w-5 h-5 text-[#E11D48]" />
-            <h3 className="text-xl font-extrabold text-[#1C1917] font-display">
-              Saved Trip Plans ({savedTrips.length})
-            </h3>
+            <div>
+              <h3 className="text-xl font-extrabold text-[#1C1917] font-display">
+                Saved Versions & Trip Plans ({savedTrips.length})
+              </h3>
+              <p className="text-xs text-stone-500">Stored in browser memory · Click "Load Version" to restore anytime</p>
+            </div>
           </div>
           <button
             type="button"
@@ -47,9 +50,9 @@ export const SavedTripsModal: React.FC<SavedTripsModalProps> = ({
           {savedTrips.length === 0 ? (
             <div className="text-center py-12 text-stone-500 space-y-2">
               <Bookmark className="w-10 h-10 mx-auto text-stone-300 stroke-1" />
-              <div className="text-sm font-bold text-[#1C1917]">No Saved Trip Plans Yet</div>
+              <div className="text-sm font-bold text-[#1C1917]">No Saved Versions Yet</div>
               <p className="text-xs text-stone-500 max-w-sm mx-auto">
-                Configure conditions for your home waters and click "Save Trip" to store conditions and tackle setups here for fast comparison.
+                Set up your fishing location and conditions, then click "Save Version" in the top bar or hero section. Your setups will be saved here so you can switch between them instantly.
               </p>
             </div>
           ) : (
@@ -98,9 +101,9 @@ export const SavedTripsModal: React.FC<SavedTripsModalProps> = ({
                         onLoadTrip(trip);
                         onClose();
                       }}
-                      className="px-4 py-1.5 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+                      className="px-4 py-2 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs whitespace-nowrap"
                     >
-                      <span>Load</span>
+                      <span>Load Version</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button
